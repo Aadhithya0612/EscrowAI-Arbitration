@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 228 25% 8%;
+    --foreground: 220 15% 95%;
+
+    --card: 228 20% 10%;
+    --card-foreground: 220 15% 95%;
+
+    --popover: 228 25% 8%;
+    --popover-foreground: 220 15% 95%;
+
+    --primary: 262 83% 67%;
+    --primary-foreground: 220 15% 95%;
+
+    --secondary: 228 15% 15%;
+    --secondary-foreground: 220 15% 95%;
+
+    --muted: 228 15% 15%;
+    --muted-foreground: 220 10% 65%;
+
+    --accent: 262 83% 67%;
+    --accent-foreground: 220 15% 95%;
+
+    --success: 158 64% 52%;
+    --success-foreground: 220 15% 95%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 228 25% 8%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 220 15% 95%;
+
+    --border: 228 15% 20%;
+    --input: 228 15% 20%;
+    --ring: 262 83% 67%;
+
+    --radius: 0.75rem;
+
+    --gradient-cosmic: linear-gradient(135deg, hsl(262 83% 67% / 0.2), hsl(228 25% 8%));
+    --gradient-success: linear-gradient(135deg, hsl(158 64% 52% / 0.2), hsl(228 25% 8%));
+    --gradient-ai: linear-gradient(135deg, hsl(262 83% 67%), hsl(282 83% 57%));
+    
+    --shadow-glow: 0 0 40px hsl(262 83% 67% / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(228 25% 5% / 0.5);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image: 
+      radial-gradient(circle at 20% 20%, hsl(262 83% 67% / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, hsl(282 83% 57% / 0.05) 0%, transparent 50%);
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/40 backdrop-blur-xl border border-border/50;
+  }
+  
+  .glow-ai {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}
